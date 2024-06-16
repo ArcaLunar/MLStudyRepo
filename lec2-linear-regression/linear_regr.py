@@ -15,6 +15,9 @@ class LinearRegression:
         Args:
                         alpha: Learning rate
                         epoch: number of iterations, default is 100
+
+        Returns:
+                        (k, b), error: parameters, error
         """
         k, b = 0.0, 0.0
         n = float(len(self.x))
@@ -28,6 +31,12 @@ class LinearRegression:
         return (k, b), self.measure_acc((k, b))
 
     def least_square_method(self):
+        """
+        Fit dataset with least square method.
+
+        Return:
+                        k, b, error: parameters, error
+        """
         X = np.array([[self.x[i], 1] for i in range(len(self.x))], dtype=float)
 
         # beta = (X^T X)^{-1} X^T y
@@ -37,9 +46,16 @@ class LinearRegression:
         return beta, self.measure_acc(beta)
 
     def measure_acc(self, beta):
+        """
+        Measures the (minimized) cost function.
+
+        Args:
+                        beta: fitting line coefficients. (K, B)
+        """
         return sum((self.y - self.x * beta[0] - beta[1]) ** 2) * 0.5
 
 
+# Test function.
 if __name__ == "__main__":
     x = np.array([2, 4, 6], dtype=float)
     y = np.array([6, 8, 10], dtype=float)
