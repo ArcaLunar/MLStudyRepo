@@ -38,8 +38,7 @@ The adopted cost function is
 
 $$
 \begin{aligned}
-E
-&=\frac{1}{2}\sum_i \Big(y^{(i)}_{\text{label}}-y^{(i)}_{\text{predict}}\Big)^2\\
+E&=\frac{1}{2}\sum_i \Big(y^{(i)}_{\text{label}}-y^{(i)}_{\text{predict}}\Big)^2\\
 &=\frac{1}{2}\sum_i \Big(y^{(i)}_{\text{label}}-kx^{(i)}-b\Big)^2
 \end{aligned}
 $$
