@@ -38,8 +38,8 @@ The adopted cost function is
 
 $$
 \begin{aligned}
-E&=\frac{1}{2}\sum_i \Big(y^{(i)}_{\text{label}}-y^{(i)}_{\text{predict}}\Big)^2\\
-&=\frac{1}{2}\sum_i \Big(y^{(i)}_{\text{label}}-kx^{(i)}-b\Big)^2
+E&=\frac{1}{2n}\sum_i^n \Big(y^{(i)}_{\text{label}}-y^{(i)}_{\text{predict}}\Big)^2\\
+&=\frac{1}{2n}\sum_i^n \Big(y^{(i)}_{\text{label}}-kx^{(i)}-b\Big)^2
 \end{aligned}
 $$
 
@@ -49,15 +49,15 @@ The updating follows (assuming $\alpha$ is learning rate)
 
 $$
 \begin{aligned}
-k'&\gets k-\alpha\frac{\partial E}{\partial k}\\
-&=k+\alpha\sum_i\Big(y^{(i)}_{\text{label}}-kx^{(i)}-b\Big)x^{(i)}
+k'&\gets k-\frac{1}{n}\alpha\frac{\partial E}{\partial k}\\
+&=k+\frac{1}{n}\alpha\sum_i^n\Big(y^{(i)}_{\text{label}}-kx^{(i)}-b\Big)x^{(i)}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-b'&\gets b-\alpha\frac{\partial E}{\partial b}\\
-&=b+\alpha\sum_i\Big(y^{(i)}_{\text{label}}-kx^{(i)}-b\Big)
+b'&\gets b-\frac{1}{n}\alpha\frac{\partial E}{\partial b}\\
+&=b+\frac{1}{n}\alpha\sum_i^n\Big(y^{(i)}_{\text{label}}-kx^{(i)}-b\Big)
 \end{aligned}
 $$
 
